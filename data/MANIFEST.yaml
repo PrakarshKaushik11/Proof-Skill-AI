@@ -1,0 +1,171 @@
+# ProofSkill AI — Dataset Manifest
+# This manifest documents dataset sources and validation status.
+# Update status fields only after verifying the actual data.
+
+version: "1.0"
+project: "ProofSkill AI"
+problem_id: "IM-105 Advanced"
+
+defaults:
+  encoding: "utf-8"
+  timezone: "UTC"
+  synthetic_data_must_be_labeled: true
+  real_candidate_data_requires_authorized_access: true
+
+datasets:
+
+  - id: "demo_candidates"
+    name: "Synthetic Candidate Profiles"
+    description: >
+      Fictional candidate profiles used for local development,
+      testing, and hackathon demonstrations.
+    path: "data/demo/candidates.json"
+    format: "json"
+    status: "planned"
+    source_type: "synthetic"
+    contains_real_personal_data: false
+    permitted_uses:
+      - "development"
+      - "testing"
+      - "demonstration"
+    restrictions:
+      - "Do not present synthetic profiles as real candidates."
+      - "Do not report synthetic-data results as official benchmark results."
+    validation:
+      schema_validated: false
+      content_reviewed: false
+      last_validated: null
+
+  - id: "demo_jobs"
+    name: "Synthetic Job Descriptions"
+    description: >
+      Fictional job descriptions and skill requirements for testing
+      resume matching, interview generation, and candidate comparison.
+    path: "data/demo/jobs.json"
+    format: "json"
+    status: "planned"
+    source_type: "synthetic"
+    contains_real_personal_data: false
+    permitted_uses:
+      - "development"
+      - "testing"
+      - "demonstration"
+    restrictions:
+      - "Use consistent skill requirements when comparing candidates."
+      - "Label example results as illustrative."
+    validation:
+      schema_validated: false
+      content_reviewed: false
+      last_validated: null
+
+  - id: "demo_assessments"
+    name: "Synthetic Assessment Examples"
+    description: >
+      Fictional interview questions, answers, evidence references,
+      and expected evaluation examples for testing assessment workflows.
+    path: "data/demo/assessments.json"
+    format: "json"
+    status: "planned"
+    source_type: "synthetic"
+    contains_real_personal_data: false
+    permitted_uses:
+      - "development"
+      - "testing"
+      - "demonstration"
+    restrictions:
+      - "Expected scores are test fixtures, not validated hiring predictions."
+      - "Do not describe example assessments as human-validated unless reviewed."
+    validation:
+      schema_validated: false
+      content_reviewed: false
+      last_validated: null
+
+  - id: "official_im105_dataset"
+    name: "Official IM-105 Assessment Dataset"
+    description: >
+      The problem statement references anonymized fresher profiles,
+      consented repository and assessment evidence, and job descriptions.
+      Actual dataset access and contents must be independently confirmed.
+    path: null
+    format: "unknown"
+    status: "unconfirmed"
+    source_type: "official_external"
+    contains_real_personal_data: "unknown"
+    permitted_uses:
+      - "Only after access authorization and usage requirements are verified."
+    restrictions:
+      - "Do not fabricate dataset records."
+      - "Do not assume the dataset is available locally."
+      - "Follow the official dataset license and access conditions."
+      - "Do not publish private or re-identifiable candidate information."
+      - "Document evaluation splits and prevent data leakage."
+    validation:
+      schema_validated: false
+      content_reviewed: false
+      last_validated: null
+
+schema_policy:
+  candidate_profiles:
+    required_fields:
+      - "candidate_id"
+    optional_fields:
+      - "skills"
+      - "projects"
+      - "resume_text"
+      - "evidence_references"
+    prohibited_ranking_fields:
+      - "college_name"
+      - "gender"
+      - "age"
+      - "location"
+
+  job_descriptions:
+    required_fields:
+      - "job_id"
+      - "title"
+      - "description"
+      - "requirements"
+    requirements_item_fields:
+      - "skill_name"
+      - "weight"
+      - "required"
+
+  assessments:
+    required_fields:
+      - "assessment_id"
+      - "candidate_id"
+      - "job_id"
+      - "status"
+    recommended_fields:
+      - "rubric_version"
+      - "evidence_references"
+      - "created_at"
+
+validation_policy:
+  reject_malformed_records: true
+  reject_duplicate_primary_ids: true
+  validate_foreign_key_references: true
+  validate_numeric_score_ranges: true
+  distinguish_missing_from_zero: true
+  require_synthetic_data_label: true
+  require_authorized_access_for_official_data: true
+
+privacy:
+  minimize_personal_data: true
+  store_api_keys_in_dataset_files: false
+  allow_unapproved_candidate_data: false
+  require_consent_for_optional_repository_analysis: true
+  define_retention_policy_before_real_data_use: true
+
+evaluation:
+  use_held_out_data_when_available: true
+  prevent_train_test_leakage: true
+  report_synthetic_and_official_results_separately: true
+  report_metrics_only_after_actual_measurement: true
+  record_dataset_version_and_evaluation_configuration: true
+
+maintenance:
+  update_manifest_when_dataset_changes: true
+  record_source_and_access_conditions: true
+  validate_paths_before_use: true
+  do_not_mark_unverified_datasets_as_available: true

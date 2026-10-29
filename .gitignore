@@ -1,0 +1,35 @@
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+
+# Python environments, bytecode, and packaging
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Test, lint, and coverage output
+.pytest_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local databases and generated notebook state
+*.db
+*.sqlite
+*.sqlite3
+.ipynb_checkpoints/
+
+# Local or restricted candidate datasets
+data/private/
+data/real/
+data/restricted/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
