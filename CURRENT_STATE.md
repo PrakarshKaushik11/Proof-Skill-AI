@@ -5,7 +5,7 @@
 **Problem Statement:** IM-105 Advanced — Integraminds  
 **Theme:** AI FRONTIER  
 **Track:** Software  
-**Status:** Documentation scaffold; application implementation not started
+**Status:** Initial Streamlit UI and deterministic service journey implemented; persistence, live integrations, and automated tests remain pending
 **Last Updated:** 2026-10-29
 
 ---
@@ -37,7 +37,15 @@ These are project objectives, not a statement that every feature is already oper
 
 ## 3. Repository and Documentation Status
 
-The repository currently contains project documentation, prompt definitions, configuration examples, and directories intended for application code, tests, scripts, notebooks, and deployment resources. The `src/`, `tests/`, `scripts/`, `deploy/`, `notebooks/`, and `.agents/` directories are empty; no application or test code is present.
+The repository contains project documentation, prompt definitions, configuration
+examples, typed UI service contracts, deterministic demo services, and an
+initial Streamlit entrypoint in `app.py`. The candidate journey supports resume
+upload, claim review, job requirements, consent-based repository discovery,
+interview/task responses, and Proof Card display. A recruiter review path
+supports selecting and comparing synthetic candidates.
+
+Persistence, live integrations, a production backend, and automated UI tests
+are not yet implemented.
 
 Documented files include:
 

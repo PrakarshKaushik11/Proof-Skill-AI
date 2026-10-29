@@ -347,7 +347,16 @@ Environment variables only take effect when the application reads and uses them.
 
 ## Running the Application
 
-There is currently no application source code under `src/`, so the project does not yet have a supported startup command. A run command should be documented here after an application entry point has been implemented and verified.
+Start the Streamlit application from the project root:
+
+```powershell
+python -m streamlit run app.py
+```
+
+The application starts in demo mode by default and uses synthetic data and
+deterministic local services when no backend module or external credentials are
+configured. Configure `PROOFSKILL_SERVICES_MODULE` only when a compatible
+backend service module is available.
 
 ## Testing
 

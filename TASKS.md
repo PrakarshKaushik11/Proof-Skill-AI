@@ -41,7 +41,7 @@ Priority definitions:
 - [ ] P0.6 — Create `.env.example` without real credentials.
 - [x] P0.7 — Add `.gitignore` rules for secrets, local databases, caches, and private datasets.
 - [ ] P0.8 — Initialise SQLite and create the initial schema.
-- [ ] P0.9 — Create Streamlit navigation and page structure.
+- [x] P0.9 — Create Streamlit navigation and page structure.
 - [ ] P0.10 — Add basic logging and error handling.
 - [ ] P0.11 — Create the initial pytest configuration.
 - [ ] P0.12 — Verify that the application starts without external API credentials.

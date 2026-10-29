@@ -9,7 +9,7 @@
 - **Track:** Software
 - **Primary Language:** Python
 - **Initial UI Direction:** Streamlit, subject to existing implementation
-- **Current Handoff Status:** Project context and documentation recorded; actual runtime status must be verified.
+- **Current Handoff Status:** Initial Streamlit candidate and recruiter journeys are implemented in `app.py`; runtime and UI test coverage remain to be verified.
 
 ## 2. Project Overview
 
